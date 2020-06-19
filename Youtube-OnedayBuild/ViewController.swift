@@ -10,10 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var model = Model()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.red
-        // Do any additional setup after loading the view.
+        
+        
+        model.getVideos()
+        
     }
 
 
