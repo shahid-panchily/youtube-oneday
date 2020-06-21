@@ -23,14 +23,30 @@ class Model {
         
         let dataTask = session.dataTask(with: url!) { (data, response, error) in
             
-            if data != nil || error != nil {
-                
+            if data == nil || error != nil {
               return
+            }
+            
+//            parsing a data
+            
+            do {
+                
+                let decoder = JSONDecoder()
+                decoder.dataDecodingStrategy = .base64
+                let response = try decoder.decode(Response.self, from: data!)
+                            
+                print(response.items)
+                
+            }
+            catch
+            
+            {
                 
                 
             }
             
-//            parsing a data
+            
+            
         }
         dataTask.resume()
         
